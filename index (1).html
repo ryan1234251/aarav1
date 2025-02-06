@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excellence School</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+ 
+        html {
+            scroll-behavior: smooth;
+        }
+ 
+        section {
+            padding: 80px 20px;
+        }
+ 
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+        }
+ 
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #003366;
+            padding: 15px 30px;
+            z-index: 1000;
+        }
+ 
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+ 
+        .logo {
+            color: red;
+            font-size: 24px;
+            font-weight: bold;
+        }
+ 
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+ 
+        nav ul li {
+            margin-left: 30px;
+        }
+ 
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+ 
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+ 
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), #004d99;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+ 
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color:yellow;
+        }
+ 
+        /* About Section */
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+ 
+        .about-text {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+ 
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+ 
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: #003366;
+        }
+ 
+        /* Academics Section */
+        .programs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+ 
+        .program-card {
+            background: #f5f5f5;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+ 
+        /* Facilities Section */
+        .facility-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+ 
+        .facility {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        /* Events Section */
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+ 
+.event-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+ 
+.event-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+ 
+.event-card h3, .event-card p, .event-card .date {
+    padding: 10px 20px;
+}
+ 
+.event-card .date {
+    color: #003366;
+    font-weight: bold;
+    display: block;
+}
+ 
+/* Gallery Section */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+ 
+.gallery-grid img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+ 
+.gallery-grid img:hover {
+    transform: scale(1.05);
+}
+ 
+/* CAR Life Section */
+.life-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+ 
+.life-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+ 
+.life-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+ 
+.life-card h3, .life-card p {
+    padding: 15px;
+}
+ 
+/* Achievements Section */
+.achievements-slider {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+ 
+.achievement-card {
+    min-width: 300px;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+ 
+.achievement-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+ 
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .events-grid,
+    .gallery-grid,
+    .life-grid {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+ 
+    .achievements-slider {
+        flex-direction: column;
+    }
+ 
+    .achievement-card {
+        min-width: unset;
+    }
+}
+ 
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+ 
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+ 
+        .contact-form input,
+        .contact-form textarea {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+ 
+        .contact-form textarea {
+            height: 150px;
+        }
+ 
+        .contact-form button {
+            padding: 15px;
+            background: #003366;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+ 
+        .contact-form button:hover {
+            background: #002244;
+        }
+ 
+        /* Footer */
+        footer {
+            background: #002244;
+            color: white;
+            padding: 50px 20px 20px;
+        }
+ 
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+ 
+        .footer-section h4 {
+            margin-bottom: 20px;
+        }
+ 
+        .footer-section ul {
+            list-style: none;
+        }
+ 
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+ 
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+        }
+ 
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+ 
+        .footer-bottom {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+ 
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            section {
+                padding: 60px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav>
+            <div class="logo">CAR SITE </div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#academics">Academics</a></li>
+                <li><a href="#facilities">Facilities</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#CAR LIFE">CARS</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+ 
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to CAR SITE </h1>
+<P>BEST CAR  FOR FAMILY</p>
+        </div>
+    </section>
+ 
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Excellence OF since 1990. We focus on holistic development of car .</p>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <h3>1000+</h3>
+                    <p>WORKERS</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100+</h3>
+                    <p>ENGENIER</p>
+                </div>
+                <div class="stat-item">
+                    <h3>30+</h3>
+                    <p>Years</p>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <!-- WORKING GROUP -->
+    <section id="academics" class="academics">
+        <h2>FACILITES</h2>
+        <div class="programs">
+            <div class="program-card">
+                <h3>LOW PRIZE CAR</h3>
+                <p>PRIZE 1-10 LAKH</p>
+            </div>
+            <div class="program-card">
+                <h3>Middle PRIZE CAR</h3>
+                <p>PRIZE 11-30 LAKH</p>
+            </div>
+            <div class="program-card">
+                <h3>High PRIZE CAR</h3>
+                <p>PRIZE 31-99 LAKH</p>
+            </div>
+        </div>
+    </section>
+ 
+    <!-- Facilities Section -->
+    <section id="facilities" class="facilities">
+        <h2>Our Facilities</h2>
+        <div class="facility-grid">
+            <div class="facility">
+                <h3>AC CAR </h3>
+                <p>State-of-the-art COOLNESS</p>
+            </div>
+            <div class="facility">
+                <h3>LUXURY CAR </h3>
+                <p>Extensive collection of COMFORT  </p>
+            </div>
+            <div class="facility">
+                <h3>Sports CAR </h3>
+                <p>Multiple sports CAR  facilities</p>
+            </div>
+            <div class="facility">
+                <h3>MODERN TECHNOLOGY</h3>
+                <p>Modern AI CARS</p>
+            </div>
+        </div>
+    </section>
+ 
+  <!-- After Facilities section, add these new sections: -->
+ 
+<!-- Events Section -->
+<section id="events" class="events">
+    <h2>Upcoming Events</h2>
+    <div class="events-grid">
+        <div class="event-card">
+            <img src="https://res.cloudinary.com/simpleview/image/upload/v1664987183/clients/texas/discoverdenton_Instagram_3163_ig_18149046172184896_938dfe6c-f02c-4626-ac96-ba2b906eed74.jpg" alt="CAR RACE ">
+            <h3>CAR RACE</h3>
+            <p>Join us for our grand cultural celebration</p>
+            <span class="date">March 15, 2025</span>
+        </div>
+        <div class="event-card">
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/6d/a5/1e/caption.jpg?w=1200&h=-1&s=1" alt="Sports Meet">
+            <h3>CAR  Meet</h3>
+            <p> inter-house sports competition</p>
+            <span class="date">April 5, 2025</span>
+        </div>
+        <div class="event-card">
+            <img src="https://akm-img-a-in.tosshub.com/businesstoday/images/story/202301/14-15-1-sixteen_nine_1.jpg?size=1280:720
+            " alt="CAR Fair">
+            <h3>CAR  Exhibition</h3>
+            <p> projects and innovations showcase</p>
+            <span class="date">May 10, 2025</span>
+        </div>
+    </div>
+</section>
+ 
+<!-- Gallery Section -->
+<section id="gallery" class="gallery">
+    <h2>SHOWROOM Gallery</h2>
+    <div class="gallery-grid">
+        <img src="https://lh6.googleusercontent.com/proxy/3bnYRjJDWE5abtxdi_9gTOE9rJZwU0fOCQ8vB38n7r1bDKc0BQK8T8ASZ-D5D7vMElg515sYpUmfpBRwLPgKeTi6S5HEYS_eLjgP6xvGK3i-GrZvvBsO7bJ3hZdBNgVtCsoCucStvj-H1vyKK5UpIvoRUFASmQnrL4VASDno8r6SGmkBqtQHXthg" alt="TRANING GROUND">
+        <img src="https://5.imimg.com/data5/SELLER/Default/2021/12/QH/XK/CR/144006827/tdc-classroom-1-5-21-for-website-jpg-500x500.jpg" alt="CAR Classroom">
+        
+        
+        
+        <img src="https://th-i.thgim.com/public/incoming/89dyz2/article68027806.ece/alternates/FREE_1200/5964_4_4_2024_14_3_30_1_IMG_20240404_WA0055.JPG
+        " alt="Auditorium">
+    </div>
+</section>
+ 
+<!-- Student Life Section -->
+<section id="CAR-life" class="CAR-life">
+    <h2>CAR-life Life</h2>
+    <div class="life-grid">
+        <div class="life-card">
+            <img src="https://www.carandbike.com/_next/image?url=https%3A%2F%2Fc.ndtvimg.com%2F2021-12%2Fohnadvro_car_625x300_09_December_21.jpg&w=3840&q=75" alt=" CAR Clubs">
+            <h3>Student Clubs</h3>
+            <p>Join various clubs </p>
+        </div>
+        <div class="life-card">
+            <img src="https://c8.alamy.com/comp/2KEBR5F/zliten-libya-10th-nov-2022-people-seen-watching-a-four-wheel-drive-car-climbing-the-slopes-in-the-car-rally-the-slopes-of-the-shatt-al-hashem-sands-in-zliten-witnessed-the-activities-of-a-four-wheel-drive-rally-including-races-and-performances-with-a-display-of-cars-and-motorcycles-participating-in-the-rally-this-event-aims-to-introduce-the-libyan-desert-tourism-and-support-the-tourism-sector-in-general-as-libya-is-rich-in-desert-and-cultural-heritage-that-stimulates-the-practice-of-such-sports-activities-and-the-return-of-tourists-to-the-country-credit-image-islam-alatrashsop-2KEBR5F.jpg" alt="Sports">
+            <h3>Sports Activities</h3>
+            <p>Participate in multiple sports disciplines</p>
+        </div>
+        
+        
+    </div>
+</section>
+ 
+<!-- Achievements Section -->
+<section id="achievements" class="achievements">
+    <h2>Our Achievements</h2>
+    <div class="achievements-slider"> 
+        <div class="achievement-card">
+            <img src="https://via.placeholder.com/200x200" alt="Trophy">
+            <h3>Best CAR https://mediapool.bmwgroup.com/cache/P9/202411/P90579881/P90579881-barcelona-esp-16th-november-2024-bmw-m-gmbh-official-car-of-motogp-bmw-m-award-2024-motogp-carmelo-e-600px.jpgAward 2024</h3>
+            <p>Recognized for academic excellence</p>
+        </div>
+        <div class="achievement-card">
+            <img src="https://i.ytimg.com/vi/zeEG46CaWGU/maxresdefault.jpg" alt="Medal">
+            <h3>Sports Championship</h3>
+            <p> winners in LUXURY  categories</p>
+        </div>
+        <div class="achievement-card">
+            <img src="https://cdn.cars24.com/prod/auto-news24-cms/CARS24-Blog-Images/2024/09/10/9de5718f-db27-4f10-aa39-48de75277071-How-to-renew-your-vehicle%E2%80%99s-fitness-certificate.jpg" alt="Certificate">
+            <h3>100% Results</h3>
+            <p>Consistent academic performance</p>
+        </div>
+    </div>
+</section>
+ 
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-container">
+            <form class="contact-form">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+            <div class="contact-info">
+                <h3>Get in Touch</h3>
+                <p>Email: info@excellenceschool.com</p>
+                <p>Phone: (555) 123-4567</p>
+                <p>Address: 123 Education Street, City, Country</p>
+            </div>
+        </div>
+    </section>
+ 
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#academics">Academics</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#">Facebook</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">Instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Excellence School. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html
